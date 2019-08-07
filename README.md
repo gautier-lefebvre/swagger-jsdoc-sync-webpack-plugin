@@ -40,7 +40,7 @@ module.exports = {
 
 ```js
 /**
-@swagger
+ * @swagger
  *
  * components:
  *   schemas:
@@ -66,10 +66,12 @@ The created file will be `swagger.json` inside the output folder.
 
 ## Options
 
-- **[swagger]** *(Object)* - Swagger definition (equivalent to `swagger-jsdoc`'s `swaggerDefinition`
+- **swagger** *(Object)* - Swagger definition (equivalent to `swagger-jsdoc`'s `swaggerDefinition`
   option - see
   [their documentation](https://www.npmjs.com/package/swagger-jsdoc#fundamental-concepts)).
 - **[prettyJson]** *(boolean)* - If `true`, will prettry print the `swagger.json` file.
+- **[filename='swagger.json']** *(string)* - Swagger specification output filename (relative to
+  compilation output folder).
 
 ## Tests
 
