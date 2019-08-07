@@ -20,7 +20,7 @@ module.exports = {
     new SwaggerJsdocSyncWebpackPlugin({
       // Swagger specification metadata.
       swagger: {
-        openapi: '3.0,
+        openapi: '3.0',
         info: {
           title: 'My API',
           version: require('./package.json').version,
