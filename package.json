@@ -1,0 +1,35 @@
+{
+  "name": "swagger-jsdoc-sync-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Webpack plugin updating the swagger specification based on imported files",
+  "main": "lib/index.js",
+  "author": "Gautier Lefebvre",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gautier-lefebvre/swagger-jsdoc-sync-webpack-plugin.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint:js": "eslint --ext=js ./lib",
+    "lint-fix:js": "yarn lint:js --fix"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "husky": "^2.4.1",
+    "jest": "^24.8.0",
+    "json-loader": "^0.5.7",
+    "lint-staged": "^8.2.1",
+    "memory-fs": "^0.4.1",
+    "webpack": "^4.34.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "swagger-jsdoc": "^3.3.0"
+  }
+}
