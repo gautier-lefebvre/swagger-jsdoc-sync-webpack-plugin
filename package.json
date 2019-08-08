@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "swagger-jsdoc": "https://github.com/gautier-lefebvre/swagger-jsdoc"
+    "swagger-jsdoc": "^3.4.0"
   }
 }

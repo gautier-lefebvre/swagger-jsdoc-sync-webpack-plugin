@@ -5844,9 +5844,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-"swagger-jsdoc@https://github.com/gautier-lefebvre/swagger-jsdoc":
-  version "3.3.0"
-  resolved "https://github.com/gautier-lefebvre/swagger-jsdoc#326e6773c9a40f5563f8e57432156116a2503221"
+swagger-jsdoc@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/swagger-jsdoc/-/swagger-jsdoc-3.4.0.tgz#48846c65215d59adeb3c4f4c82c3881305cd1a5e"
+  integrity sha512-lS3dpULpwQ5TSfPF9d9nxyXicTjJMgBGu74g/GQ0r247QMVsgqa6cL9sJ0NtK2IGxzG3HozBcXKv7qo+ns+hqg==
   dependencies:
     commander "2.20.0"
     doctrine "3.0.0"
