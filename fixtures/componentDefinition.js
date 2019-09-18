@@ -1,3 +1,5 @@
+require('./componentDefinitionDependency');
+
 /**
  * @swagger
  *

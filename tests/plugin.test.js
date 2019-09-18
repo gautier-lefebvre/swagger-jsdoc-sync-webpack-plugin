@@ -1,5 +1,6 @@
 const path = require('path');
 
+// const { explore } = require('source-map-explorer');
 const webpack = require('webpack');
 const MemoryFs = require('memory-fs');
 
@@ -152,5 +153,28 @@ describe('swagger-jsdoc-sync-webpack-plugin', () => {
 
     const specification = stats.compilation.assets['customswaggerpath.json'].source();
     expect(specification).toBe(fixtureUglyJson);
+  });
+
+  it('works in production mode', async () => {
+    const stats = await compile(
+      path.resolve(__dirname, '../fixtures/componentDefinition.js'),
+      {
+        swagger: {
+          openapi: '3.0',
+          info: {
+            title: 'My API',
+            version: '1.0.0',
+            description: 'What my API does.',
+          },
+        },
+        prettyJson: true,
+      },
+      {
+        mode: 'production',
+      },
+    );
+
+    const specification = stats.compilation.assets['swagger.json'].source();
+    expect(specification).toBe(fixturePrettyJson);
   });
 });
