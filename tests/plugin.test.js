@@ -63,10 +63,10 @@ const compile = (fixture, options = {}, webpackOptions = {}) => {
 
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
-      if (err) reject(err);
-      if (stats.hasErrors()) reject(new Error(stats.toJson().errors));
+      if (err) return reject(err);
+      if (stats.hasErrors()) return reject(new Error(stats.toJson().errors));
 
-      resolve(stats);
+      return resolve(stats);
     });
   });
 };
@@ -176,5 +176,51 @@ describe('swagger-jsdoc-sync-webpack-plugin', () => {
 
     const specification = stats.compilation.assets['swagger.json'].source();
     expect(specification).toBe(fixturePrettyJson);
+  });
+
+  it('does not crash on syntax error in the swagger definition', async () => {
+    expect.assertions(1);
+
+    try {
+      await compile(
+        path.resolve(__dirname, '../fixtures/invalidComponentDefinition.js'),
+        {
+          swagger: {
+            openapi: '3.0',
+            info: {
+              title: 'My API',
+              version: '1.0.0',
+              description: 'What my API does.',
+            },
+          },
+          prettyJson: true,
+        },
+      );
+    } catch (err) {
+      expect(err.message.startsWith('bad indentation')).toBe(true);
+    }
+  });
+
+  it('emits the bundle but not the swagger if emitWarningOnError is true', async () => {
+    expect.assertions(2);
+
+    const stats = await compile(
+      path.resolve(__dirname, '../fixtures/invalidComponentDefinition.js'),
+      {
+        swagger: {
+          openapi: '3.0',
+          info: {
+            title: 'My API',
+            version: '1.0.0',
+            description: 'What my API does.',
+          },
+        },
+        emitWarningOnError: true,
+        prettyJson: true,
+      },
+    );
+
+    expect(stats.compilation.assets['bundle.js']).toBeDefined();
+    expect(stats.compilation.assets['swagger.json']).toBeUndefined();
   });
 });

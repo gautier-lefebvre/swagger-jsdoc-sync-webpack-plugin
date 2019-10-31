@@ -69,9 +69,12 @@ The created file will be `swagger.json` inside the output folder.
 - **swagger** *(Object)* - Swagger definition (equivalent to `swagger-jsdoc`'s `swaggerDefinition`
   option - see
   [their documentation](https://www.npmjs.com/package/swagger-jsdoc#fundamental-concepts)).
-- **[prettyJson]** *(boolean)* - If `true`, will prettry print the `swagger.json` file.
+- **[prettyJson]** *(boolean)* - If `true`, will pretty print the `swagger.json` file.
 - **[filename='swagger.json']** *(string)* - Swagger specification output filename (relative to
   compilation output folder).
+- **[emitWarningOnError=false]** *(boolean)* - If `true`, will emit the bundle but not the
+  `swagger.json` on swagger parsing error. Default behaviour is false, the bundle is not emitted
+  either.
 
 ## Tests
 
